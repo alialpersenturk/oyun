@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Culture Minister: Atlas (MVP)</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <style>
+    html, body { height: 100%; margin: 0; font-family: system-ui, Arial; }
+    #wrap { display: grid; grid-template-columns: 360px 1fr; height: 100%; }
+    #sidebar { padding: 14px; border-right: 1px solid #ddd; overflow: auto; }
+    #map { height: 100%; }
+    .stat { display:flex; justify-content:space-between; margin: 6px 0; }
+    .card { border:1px solid #e5e5e5; border-radius: 12px; padding: 10px; margin: 10px 0; }
+    button { padding: 10px 12px; border-radius: 12px; border: 1px solid #ddd; cursor: pointer; }
+    input[type="range"]{ width:100%; }
+    .small { color:#666; font-size: 12px; }
+    .pill { display:inline-block; padding: 4px 8px; border:1px solid #ddd; border-radius:999px; margin-right:6px; font-size:12px;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="sidebar">
+      <h2>Culture Minister: Atlas</h2>
+      <div class="small">GPS yok. Haritada serbest gez, kültürel noktaları yönet.</div>
+
+      <div class="card">
+        <h3>Ülke Kasası</h3>
+        <div class="stat"><span>Bütçe</span><b id="money">0</b></div>
+        <div class="stat"><span>Turist Memnuniyeti</span><b id="happy">0</b></div>
+        <div class="stat"><span>İtibar</span><b id="rep">0</b></div>
+        <div class="small">Her “ay” sonunda gelir/gider hesaplanır.</div>
+        <button id="nextMonth">Sonraki Ay ▶</button>
+      </div>
+
+      <div class="card">
+        <h3>Vergi & Politika</h3>
+        <div class="small">Turizm vergisi (yüksek olursa gelir ↑, memnuniyet ↓)</div>
+        <div class="stat"><span>Vergi Oranı</span><b id="taxLabel">10%</b></div>
+        <input id="tax" type="range" min="0" max="30" value="10" />
+        <div class="small" style="margin-top:8px;">
+          Kültür bütçesi (yüksek olursa bakım ↑, itibar ↑, gider ↑)
+        </div>
+        <div class="stat"><span>Kültür Payı</span><b id="cultureLabel">25%</b></div>
+        <input id="culture" type="range" min="0" max="60" value="25" />
+      </div>
+
+      <div class="card">
+        <h3>Seçili Nokta</h3>
+        <div id="poiBox" class="small">Haritadan bir yer seç.</div>
+      </div>
+
+      <div class="card">
+        <h3>Görevler</h3>
+        <div id="quests"></div>
+      </div>
+
+      <div class="card">
+        <h3>Koleksiyon</h3>
+        <div class="small">Kategori rozetleri:</div>
+        <div id="badges" style="margin-top:8px;"></div>
+      </div>
+
+      <div class="small">
+        Harita verisi © OpenStreetMap katkıcıları. Bu bir MVP prototip.
+      </div>
+    </div>
+
+    <div id="map"></div>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="./game.js"></script>
+</body>
+</html>

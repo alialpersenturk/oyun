@@ -1,0 +1,14 @@
+{
+  "center": [41.0082, 28.9784],
+  "zoom": 12,
+  "pois": [
+    { "id":"topkapi", "name":"Topkapı Sarayı", "type":"museum", "lat":41.0116, "lng":28.9833, "era":"osmanli", "value": 90, "condition": 70 },
+    { "id":"ayasofya", "name":"Ayasofya", "type":"heritage", "lat":41.0086, "lng":28.9802, "era":"bizans", "value": 95, "condition": 65 },
+    { "id":"arkeoloji", "name":"İstanbul Arkeoloji Müzeleri", "type":"museum", "lat":41.0110, "lng":28.9819, "era":"antik", "value": 85, "condition": 60 },
+    { "id":"galata", "name":"Galata Kulesi", "type":"monument", "lat":41.0256, "lng":28.9741, "era":"orta", "value": 75, "condition": 55 }
+  ],
+  "quests": [
+    { "id":"restore2", "title":"2 yeri restore et", "desc":"Condition < 70 olan iki kültür varlığını 80+ seviyesine getir.", "reward": 400, "type":"restore", "targetCount": 2 },
+    { "id":"museums3", "title":"3 müze keşfet", "desc":"3 farklı müzeyi ziyaret et (tıkla ve 'Ziyaret' yap).", "reward": 250, "type":"visitType", "poiType":"museum", "targetCount": 3 }
+  ]
+}
